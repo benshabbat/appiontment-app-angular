@@ -14,7 +14,7 @@ export class AppointmentList {
   appointments: Appointment[] = [];
 
   addAppointment() {
-    if (this.newAppointmentTitle && this.newAppointmentDate) {
+    if (this.newAppointmentTitle.trim().length && this.newAppointmentDate) {
       const newAppointment: Appointment = {
         id: this.appointments.length + 1,
         title: this.newAppointmentTitle,

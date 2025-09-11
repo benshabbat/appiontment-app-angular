@@ -8,6 +8,7 @@
   @for( appointment of appointments; track appointment.title) {
   <li>
     <strong>{{ appointment.title }}</strong> - {{ appointment.date }}
+    <button (click)="removeAppointment(appointment.id)">Delete</button>
   </li>
   }
 </ul>

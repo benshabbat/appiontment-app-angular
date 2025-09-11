@@ -25,4 +25,8 @@ export class AppointmentList {
       this.newAppointmentDate = new Date();
     }
   }
+
+  removeAppointment(id: number) {
+    this.appointments = this.appointments.filter(appointment => appointment.id !== id);
+  }
 }

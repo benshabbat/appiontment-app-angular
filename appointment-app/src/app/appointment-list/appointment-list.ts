@@ -23,10 +23,20 @@ export class AppointmentList {
       this.appointments.push(newAppointment);
       this.newAppointmentTitle = '';
       this.newAppointmentDate = new Date();
+
+      localStorage.setItem('appointments', JSON.stringify(this.appointments));
     }
   }
 
   removeAppointment(id: number) {
     this.appointments = this.appointments.filter(appointment => appointment.id !== id);
+    localStorage.setItem('appointments', JSON.stringify(this.appointments));
+  }
+
+  ngOnInit() {
+    const storedAppointments = localStorage.getItem('appointments');
+    if (storedAppointments) {
+      this.appointments = JSON.parse(storedAppointments);
+    }
   }
 }
